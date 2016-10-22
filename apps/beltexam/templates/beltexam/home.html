@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'beltexam/css/styles.css' %}"media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <div class="header">
+      <a href="/logout"><button>Logout</button></a>
+      <h1>Welcome, {{logged_user.name}}!</h1>
+    </div>
+    <div class="top">
+      <h2>Your Trip Schedules:</h2>
+        <table>
+          <tr>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+          </tr>
+          {% for trip in trips %}
+          <tr>
+            <td><a href=/"destination/{{trip.id}}">{{trip.destination}}</td>
+            <td>{{trip.start}}</td>
+            <td>{{trip.end}}</td>
+            <td>{{trip.description}}</td>
+          <tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="bottom">
+      <h2>Other User's Travel Plans:</h2>
+      <table>
+        <tr>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Plan</th>
+          <th>Do you want to join?</th>
+        </tr>
+
+        <!-- <tr>
+          <td>{{trip.name}}</td>
+          <td>{{trip.destination}}</td>
+          <td>{{trip.start}}</td>
+          <td>{{trip.end}}</td>
+          <td> -->
+          <form action="/join/{{trip.id}}" method="POST">
+              <input type="Submit" name="Join" value="Join">
+          </form>
+
+        <tr>
+      </table>
+      <a href="/add"><button>Add Travel Plan</button></a>
+
+
+
+  </body>
+
+</html>

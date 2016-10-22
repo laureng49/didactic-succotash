@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a Trip</title>
+  </head>
+  <body>
+    <a href="/home"><button>Home</button></a>
+    <a href="/logout"><button>Logout</button></a>
+
+    <h2>Add a Trip:</h2>
+    <div class="addtrip">
+      <form action="/add_trip" method="post">
+        {% csrf_token %}
+        <p>Destination:<input type="text" name="destination" value={{trip.destination}}></p>
+        <p>Description:<input type="text" name="description" value={{trip.description}}></p>
+        <p>Travel Date From:<input type="text" name="start" value={{trip.start}}></p>
+        <p>Travel Date To:<input type="text" name="end" value={{trip.end}}></p>
+        <input type="submit" value="Add">
+      </form>
+
+    </div>
+  </body>
+</html>

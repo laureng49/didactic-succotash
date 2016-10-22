@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Book</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'beltexam/css/styles.css' %}"media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <a href="/home"><button>Home</button></a>
+    <a href="/logout"><button>Logout</button></a>
+    <h1>{{trip.destination}}</h1>
+    <h4>Planned by: {{trip.name}}</h4>
+    <h4>Description: {{trip.description}}<h4>
+    <h4>Travel Date From: {{trip.description}}<h4>  
+
+
+
+
+  </body>
+</html>
